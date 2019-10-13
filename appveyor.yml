@@ -25,16 +25,6 @@ for:
   -
     matrix:
       only:
-        - image: Visual Studio 2017
-    build_script:
-      - ps: >-
-          cd build
-
-          .\build.ps1 -target CalculateCoverage --settings_skipverification=true
-        
-  -
-    matrix:
-      only:
         - image: Ubuntu
     build_script:
       - sh: >-
