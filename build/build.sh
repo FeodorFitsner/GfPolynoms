@@ -22,6 +22,16 @@ for i in "$@"; do
     shift
 done
 
+mkdir -p ~/.nuget/NuGet
+
+echo '
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <packageSources>
+    <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
+  </packageSources>
+</configuration>' > ~/.nuget/NuGet/NuGet.Config
+
 if [[ $(dotnet tool list -g) != *"cake.tool"* ]]; then
     dotnet tool install -g Cake.Tool
 fi
