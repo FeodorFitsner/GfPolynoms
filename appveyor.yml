@@ -1,8 +1,9 @@
 version: '{build}'
 image:
-- Visual Studio 2017
 - Ubuntu
 configuration: Release
+init:
+- cat ~/.config/NuGet/NuGet.Config
 nuget:
   project_feed: true
   disable_publish_on_pr: true
