@@ -1,33 +1,22 @@
 version: '{build}'
+
 image:
 - Ubuntu
+
 configuration: Release
+
 init:
 - cat ~/.config/NuGet/NuGet.Config
+
 nuget:
   project_feed: true
   disable_publish_on_pr: true
+  
+build_script:
+- cd build
+- ./build.sh
+
 artifacts:
 - path: build\artifacts\*.nupkg
-deploy: off
-branches:
-  only:
-    - develop
-    - /release.*/ 
-    - master
-skip_commits:
-  files:
-  - LICENSE
-  - README.md
-  - .travis.yml
-  - GfPolynoms.sln.DotSettings
-for:
-  -
-    matrix:
-      only:
-        - image: Ubuntu
-    build_script:
-      - sh: >-
-          cd build
 
-          ./build.sh
+deploy: off
