@@ -7,6 +7,7 @@ configuration: Release
 
 init:
 - cat ~/.config/NuGet/NuGet.Config
+- cat ~/.nuget/NuGet/NuGet.Config
 
 nuget:
   project_feed: true
